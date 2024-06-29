@@ -13,7 +13,7 @@ const geoip = require("geoip-lite");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/geoip', (req, res) => {
+app.get('/', (req, res) => {
   let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
   // For local testing, use a known IP address
