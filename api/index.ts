@@ -1,16 +1,5 @@
-import { geolocation } from '@vercel/edge';
-
 const express = require("express");
 const app = express();
-// const geoip = require("geoip-lite");
-
-
-// app.listen(3000, () => console.log("Server ready on port 3000."));
-
-// module.exports = app;
-
-// const express = require("express");
-// const geoip = require("geoip-lite");
 
 // const app = express();
 const port = process.env.PORT || 3000;
@@ -18,9 +7,12 @@ const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
   let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-  const { city } = geolocation(req);
+  const geo = req.headers['x-geo'] || {};
+    const country = geo.country || 'US';
+    const city = geo.city || 'San Francisco';
+    const region = geo.region || 'CA';
 
-  return res.json({ip, city});
+  return res.json({ip, geo, country, city, region});
 
 //   // For local testing, use a known IP address
 //   if (ip === '::1' || ip === '127.0.0.1') {
