@@ -5,13 +5,11 @@ const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  let vercelCountry = req.headers['X-Vercel-IP-Country'];
+  let vercelCountryRegion = req.headers['X-Vercel-IP-Country-Region'];
+  let vercelCity = req.headers['X-Vercel-IP-City'];
 
-  const geo = req.headers['x-geo'] || {};
-    const country = geo.country || 'US';
-    const city = geo.city || 'San Francisco';
-    const region = geo.region || 'CA';
-
-  return res.json({ip, geo, country, city, region});
+  return res.json({ip, vercelCountry, vercelCountryRegion, vercelCity});
 
 //   // For local testing, use a known IP address
 //   if (ip === '::1' || ip === '127.0.0.1') {
