@@ -2,7 +2,7 @@ import express from "express";
 import geoip from "geoip-lite";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
@@ -12,7 +12,10 @@ app.get("/", (req, res) => {
     ip = "8.8.8.8"; // Google's public DNS server IP address for testing
   }
 
+  console.log("IP Address:", ip); // Debugging purpose
+
   const geo = geoip.lookup(ip);
+  console.log("Geo Lookup Result:", geo); // Debugging purpose
 
   if (geo) {
     const { country, region, city } = geo;
