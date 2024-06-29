@@ -1,17 +1,17 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", (req, res) => res.send("isok lo"));
 
-app.listen(3000, () => console.log("Server ready on port 3000."));
+// app.listen(3000, () => console.log("Server ready on port 3000."));
 
-module.exports = app;
+// module.exports = app;
 
 // const express = require("express");
 // const geoip = require("geoip-lite");
 
 // const app = express();
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // app.get('/', (req, res) => {
 //   let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -40,8 +40,8 @@ module.exports = app;
 //   }
 // });
 
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
-// module.exports = app;
+module.exports = app;
