@@ -2,15 +2,21 @@
   "name": "express-geoip",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c0deslinger/geo-ip.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c0deslinger/geo-ip/issues"
+  },
+  "homepage": "https://github.com/c0deslinger/geo-ip#readme",
   "dependencies": {
     "express": "^4.19.2",
     "geoip-lite": "^1.4.10"
