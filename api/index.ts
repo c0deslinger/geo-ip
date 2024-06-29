@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const geoip = require("geoip-lite");
+// const geoip = require("geoip-lite");
 
 // app.get("/", (req, res) => res.send("isok lo"));
 
